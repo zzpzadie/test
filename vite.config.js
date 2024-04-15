@@ -9,7 +9,7 @@ export default defineConfig({
     alias: {
       // 设置路径
       '~':
-          path.resolve( './'),
+          path.resolve( './test/'),
       // // 设置别名
       // '@':
       //     path.resolve(__dirname, './src'),
