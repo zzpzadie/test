@@ -1,5 +1,5 @@
 import handleNum from "./index.js";
-//管理数据的
+//管理数据的逻辑
 let reducer = (state = {
     ...handleNum.state, //解构的写法
 }, action) => {

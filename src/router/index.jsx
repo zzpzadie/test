@@ -15,6 +15,8 @@ const AccountInfo = lazy(() => import("../views/AccountInfo.jsx"))
 const WillGo = lazy(() => import("../views/WillGo.jsx"))
 // eslint-disable-next-line react-refresh/only-export-components
 const OnceGo = lazy(() => import("../views/OnceGo.jsx"))
+// eslint-disable-next-line react-refresh/only-export-components
+const UserManege = lazy(() => import("../views/System/UserManege.jsx"))
 const routes = [
 //新的对象形式写法
     {
@@ -57,6 +59,12 @@ const routes = [
             element:
                 <React.Suspense fallback={<div>Loading...</div>}>
                     <OnceGo/>
+                </React.Suspense>
+        },{
+            path: "/test/System/UserManege",
+            element:
+                <React.Suspense fallback={<div>Loading...</div>}>
+                    <UserManege/>
                 </React.Suspense>
         },]
     },

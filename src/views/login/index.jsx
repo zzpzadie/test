@@ -6,6 +6,7 @@ import initLoginBg from "@/views/login/init.js"
 import {Button, Input, message, Space} from 'antd';
 import {useNavigate} from "react-router-dom";
 import {ChangeEvent} from "react";
+import {LoginAPI} from "@/request/api.js";
 // import {captchaAPI} from "@/request/api.js";
 
 const View = () => {
@@ -40,12 +41,27 @@ const View = () => {
     const gotoLogin = () => {
         console.log('点击', usernameVal, passwordVal)
         //验证账号密码
-
-        //跳转进入主页
-        message.success("登录成功！")
-        // 保存token
-        localStorage.setItem("my-project-token","zzp")
-        NavigateTo("/test/home")
+        if (usernameVal.trim() && passwordVal.trim()) {
+            let param = {
+                password: passwordVal,
+                no: usernameVal
+            }
+            LoginAPI(param).then(res => {
+                if (res.code === 200) {
+                    //跳转进入主页
+                    message.success("登录成功！")
+                    // 保存token
+                    localStorage.setItem("my-project-token", "zzp")
+                    NavigateTo("/test/home")
+                } else {
+                    message.error("账号或密码错误")
+                }
+            })
+            return
+        } else {
+            message.error("请输入账号或密码！！！")
+            return
+        }
     }
     // //验证码获取事件
     // const getcaptchImag = () => {
@@ -87,7 +103,6 @@ const View = () => {
                     <p>Copyright@ 2024 zzp</p>
                 </div>
             </div>
-            <p>这是login页面</p>
         </div>
     )
 

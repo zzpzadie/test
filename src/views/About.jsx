@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
-import {Breadcrumb, Layout, Menu, theme} from 'antd';
+import {Avatar, Breadcrumb, Layout, Menu, theme} from 'antd';
 import {Outlet,useNavigate} from "react-router-dom";
 import OwnMenu from "@/Component/OwnMenu/index.jsx";
+import {UserOutlined} from "@ant-design/icons";
 
+import logo from '../../public/wordLevel.svg'
 
 const {Header, Content, Footer, Sider} = Layout;
 
@@ -22,7 +24,9 @@ const View = () => {
         >
             {/*左边栏*/}
             <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
-                <div className="demo-logo-vertical"/>
+                <div className="demo-logo-vertical">
+                    <Avatar src={<img src={logo} alt="avatar" />} />
+                </div>
                 <OwnMenu/>
             </Sider>
             {/*右边内容*/}

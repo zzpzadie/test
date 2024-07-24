@@ -1,7 +1,7 @@
 import {DesktopOutlined, FileOutlined, PieChartOutlined, TeamOutlined, UserOutlined} from "@ant-design/icons";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {useNavigate, useLocation} from "react-router-dom";
-import {Menu} from "antd";
+import {Menu, message} from "antd";
 
 const items = [
     {
@@ -25,13 +25,24 @@ const items = [
             key: '/test/onceGo/site',
             icon: <FileOutlined/>
         }]
+    }, {
+        label: '系统',
+        key: 'System',
+        icon: <UserOutlined/>,
+        children: [{
+            label: '用户管理',
+            key: '/test/System/UserManege',
+            icon: <FileOutlined/>
+        }]
     }
 ];
 const Comp = () => {
     let firstOpenKeys = "";
     const navigateTo = useNavigate();
     const currentRoute = useLocation();
-
+    if(currentRoute.pathname==="/test/about"){
+        currentRoute.pathname="/test/accountInfo"
+    }
     function findKey(obj) {
         return obj.key === currentRoute.pathname
     }
