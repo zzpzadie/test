@@ -4,7 +4,7 @@ import {Outlet,useNavigate} from "react-router-dom";
 import OwnMenu from "@/Component/OwnMenu/index.jsx";
 import {UserOutlined} from "@ant-design/icons";
 
-import logo from '../../public/wordLevel.svg'
+import logo from '/wordLevel.svg'
 
 const {Header, Content, Footer, Sider} = Layout;
 

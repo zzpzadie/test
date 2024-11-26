@@ -46,8 +46,7 @@ const View = () => {
                 password: passwordVal,
                 no: usernameVal
             }
-            LoginAPI(param).then(res => {
-                if (res.code === 200) {
+                if (param.password === '20000804' && param.no === 'zzpzadie') {
                     //跳转进入主页
                     message.success("登录成功！")
                     // 保存token
@@ -56,7 +55,17 @@ const View = () => {
                 } else {
                     message.error("账号或密码错误")
                 }
-            })
+            // LoginAPI(param).then(res => {
+            //     if (res.code === 200) {
+            //         //跳转进入主页
+            //         message.success("登录成功！")
+            //         // 保存token
+            //         localStorage.setItem("my-project-token", "zzp")
+            //         NavigateTo("/test/home")
+            //     } else {
+            //         message.error("账号或密码错误")
+            //     }
+            // })
             return
         } else {
             message.error("请输入账号或密码！！！")
